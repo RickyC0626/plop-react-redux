@@ -1,0 +1,24 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl';
+{{/if}}
+
+import { style, Container } from './{{ properCase name }}.style';
+
+class {{ properCase name }} extends Component {
+  render() {
+    return (
+      <Container>
+      {{#if wantMessages}}
+        <FormattedMessage id="" />
+      {{/if}}
+      </Container>
+    );
+  }
+}
+
+{{ properCase name }}.propTypes = {};
+
+export default {{ properCase name }};

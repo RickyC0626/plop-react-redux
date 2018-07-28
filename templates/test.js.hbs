@@ -1,0 +1,19 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import ShallowRenderer from 'react-test-renderer/shallow';
+
+import {{ properCase name }} from './index';
+
+describe('[COMPONENT] <{{ properCase name }} />', () => {
+  let props;
+
+  beforeEach(() => {
+    props = {};
+  });
+
+  it('should render', () => {
+    const renderer = new ShallowRenderer();
+    renderer.render(<{{ properCase name }} {...props} />);
+    expect(renderer.getRenderOutput()).toMatchSnapshot();
+  });
+});

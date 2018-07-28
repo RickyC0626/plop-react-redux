@@ -1,0 +1,18 @@
+import React from 'react';
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl';
+{{/if}}
+
+import { style, Container } from './{{ properCase name }}.style';
+
+const {{ properCase name }} = () => {
+  return (
+      <Container>
+      {{#if wantMessages}}
+        <FormattedMessage id="" />
+      {{/if}}
+      </Container>
+  );
+};
+
+export default {{ properCase name }};
