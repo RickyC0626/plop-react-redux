@@ -32,7 +32,7 @@ module.exports = (plop, config) => {
       },
       {
         type: 'confirm',
-        name: 'wantMessages',
+        name: 'useReactIntl',
         default: true,
         message: 'Do you want to use ReactIntl?',
       },
@@ -62,7 +62,7 @@ module.exports = (plop, config) => {
         {
           type: 'add',
           path: `${
-            componentConfig.componentsPath
+            componentConfig.containersPath
           }/{{${usedCase} name}}/{{${usedCase} name}}.component.js`,
           templateFile: componentTemplate,
           abortOnFail: true,
@@ -70,7 +70,7 @@ module.exports = (plop, config) => {
         {
           type: 'add',
           path: `${
-            componentConfig.componentsPath
+            componentConfig.containersPath
           }/{{${usedCase} name}}/{{${usedCase} name}}.container.js`,
           templateFile: './templates/container.js.hbs',
           abortOnFail: true,
@@ -78,15 +78,16 @@ module.exports = (plop, config) => {
         {
           type: 'add',
           path: `${
-            componentConfig.componentsPath
+            componentConfig.containersPath
           }/{{${usedCase} name}}/index.js`,
           templateFile: './templates/index.js.hbs',
           abortOnFail: true,
+          data: { componentType: 'container' },
         },
         {
           type: 'add',
           path: `${
-            componentConfig.componentsPath
+            componentConfig.containersPath
           }/{{${usedCase} name}}/{{${usedCase} name}}.test.js`,
           templateFile: './templates/test.js.hbs',
           abortOnFail: true,
@@ -94,7 +95,7 @@ module.exports = (plop, config) => {
         {
           type: 'add',
           path: `${
-            componentConfig.componentsPath
+            componentConfig.containersPath
           }/{{${usedCase} name}}/{{${usedCase} name}}.style.js`,
           templateFile: `./templates/style.js.hbs`,
           abortOnFail: true,

@@ -9,6 +9,20 @@ module.exports = (plop, config) => {
   plop.setGenerator('Add an component', {
     prompts: [
       {
+        type: 'input',
+        name: 'name',
+        message: 'What should it be called?',
+        default: 'Button',
+        validate: value => {
+          if (/.+/.test(value)) {
+            return componentExists(value, componentConfig.componentsPath)
+              ? 'A component with this name already exists'
+              : true;
+          }
+          return 'The name is required';
+        },
+      },
+      {
         type: 'list',
         name: 'type',
         message: 'Select the type of component',
@@ -20,23 +34,8 @@ module.exports = (plop, config) => {
         ],
       },
       {
-        type: 'input',
-        name: 'name',
-        message: 'What should it be called?',
-        default: 'Button',
-        validate: value => {
-          if (/.+/.test(value)) {
-            return componentExists(value, componentConfig.componentsPath)
-              ? 'A component with this name already exists'
-              : true;
-          }
-
-          return 'The name is required';
-        },
-      },
-      {
         type: 'confirm',
-        name: 'wantMessages',
+        name: 'useReactIntl',
         default: true,
         message: 'Do you want to use ReactIntl?',
       },
@@ -78,6 +77,7 @@ module.exports = (plop, config) => {
           }/{{${usedCase} name}}/index.js`,
           templateFile: './templates/index.js.hbs',
           abortOnFail: true,
+          data: { componentType: 'component' },
         },
         {
           type: 'add',

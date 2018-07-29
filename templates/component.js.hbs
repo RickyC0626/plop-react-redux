@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-{{#if wantMessages}}
+{{#if useReactIntl}}
 import { FormattedMessage } from 'react-intl';
 {{/if}}
 
@@ -11,7 +11,7 @@ class {{ properCase name }} extends Component {
   render() {
     return (
       <Container>
-      {{#if wantMessages}}
+      {{#if useReactIntl}}
         <FormattedMessage id="" />
       {{/if}}
       </Container>

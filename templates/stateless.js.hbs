@@ -1,5 +1,5 @@
 import React from 'react';
-{{#if wantMessages}}
+{{#if useReactIntl}}
 import { FormattedMessage } from 'react-intl';
 {{/if}}
 
@@ -8,7 +8,7 @@ import { style, Container } from './{{ properCase name }}.style';
 const {{ properCase name }} = () => {
   return (
       <Container>
-      {{#if wantMessages}}
+      {{#if useReactIntl}}
         <FormattedMessage id="" />
       {{/if}}
       </Container>
