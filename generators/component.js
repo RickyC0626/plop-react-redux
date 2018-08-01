@@ -6,6 +6,7 @@ const {
   getNamePrompt,
   getTypePrompt,
   getUseReactIntlPrompt,
+  getUseFlowPrompt,
 } = require('../utils/prompts.js');
 
 const getPrompts = plopConfig => {
@@ -19,6 +20,7 @@ const getPrompts = plopConfig => {
     ]),
   );
   prompts.push(getUseReactIntlPrompt(plopConfig));
+  prompts.push(getUseFlowPrompt(plopConfig));
   return prompts;
 };
 

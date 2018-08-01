@@ -2,6 +2,7 @@ const {
   getNamePrompt,
   getTypePrompt,
   getUseReactIntlPrompt,
+  getUseFlowPrompt,
 } = require('./prompts.js');
 const plopConfiguration = require('./configuration.js');
 
@@ -29,8 +30,13 @@ describe('[PROMPTS]', () => {
     });
   });
   describe('getUseReactIntlPrompt', () => {
-    it('should return UsereactIntl prompt object with default property is equal to "plopConfig.useReactIntlByDefault"', () => {
+    it('should return UseReactIntl prompt object with default property is equal to "plopConfig.useReactIntlByDefault"', () => {
       expect(getUseReactIntlPrompt(plopConfiguration)).toMatchSnapshot();
+    });
+  });
+  describe('getUseFlowPrompt', () => {
+    it('should return UseFlow prompt object with default property is equal to "plopConfig.useFlowByDefault"', () => {
+      expect(getUseFlowPrompt(plopConfiguration)).toMatchSnapshot();
     });
   });
 });

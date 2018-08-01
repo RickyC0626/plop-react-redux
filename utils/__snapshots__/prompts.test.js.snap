@@ -10,7 +10,16 @@ Object {
 }
 `;
 
-exports[`[PROMPTS] getUseReactIntlPrompt should return UsereactIntl prompt object with default property is equal to "plopConfig.useReactIntlByDefault" 1`] = `
+exports[`[PROMPTS] getUseFlowPrompt should return UseFlow prompt object with default property is equal to "plopConfig.useFlowByDefault" 1`] = `
+Object {
+  "default": true,
+  "message": "Do you want to use Flow?",
+  "name": "useFlow",
+  "type": "confirm",
+}
+`;
+
+exports[`[PROMPTS] getUseReactIntlPrompt should return UseReactIntl prompt object with default property is equal to "plopConfig.useReactIntlByDefault" 1`] = `
 Object {
   "default": true,
   "message": "Do you want to use ReactIntl?",

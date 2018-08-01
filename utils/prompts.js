@@ -35,8 +35,18 @@ const getUseReactIntlPrompt = plopConfig => {
   };
 };
 
+const getUseFlowPrompt = plopConfig => {
+  return {
+    type: 'confirm',
+    name: 'useFlow',
+    default: plopConfig.useFlowByDefault,
+    message: 'Do you want to use Flow?',
+  };
+};
+
 module.exports = {
   getNamePrompt,
   getTypePrompt,
   getUseReactIntlPrompt,
+  getUseFlowPrompt,
 };
