@@ -5,4 +5,5 @@ module.exports = {
   defaultContainerName: 'Form',
   defaultComponentType: 'PureComponent Class',
   useReactIntlByDefault: true,
+  useFlowByDefault: true,
 };

@@ -1,13 +1,24 @@
+{{#if useFlow}}
+// @flow
+{{/if}}
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-
 {{#if useReactIntl}}
 import { FormattedMessage } from 'react-intl';
 {{/if}}
 
 import { style, Container } from './{{ properCase name }}.style';
 
+{{#if useFlow}}
+type Props = {};
+{{/if}}
+
+{{#if useFlow}}
+class {{ properCase name }} extends PureComponent<Props> {
+{{/if}}
+{{#unless useFlow}}
 class {{ properCase name }} extends PureComponent {
+{{/unless}}
   render() {
     return (
       <Container>
@@ -19,6 +30,8 @@ class {{ properCase name }} extends PureComponent {
   }
 }
 
+{{#unless useFlow}}
 {{ properCase name }}.propTypes = {};
+{{/unless}}
 
 export default {{ properCase name }};

@@ -1,12 +1,12 @@
 {
   "name": "plop-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A set of plop generator for creating React components",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext '.js' -c .eslintrc.json ./",
     "test": "jest --config=jest.config.js",
-    "test:plop" : "plop --plopfile index.js"
+    "test:plop": "plop --plopfile index.js"
   },
   "repository": {
     "type": "git",
