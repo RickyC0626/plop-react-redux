@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[PROMPTS] getTypePrompt should return Type prompt object with default property set to "defaultComponentType" and with an array of choices 1`] = `
+Object {
+  "choices": [Function],
+  "default": "PureComponent Class",
+  "message": "Select the type of component",
+  "name": "type",
+  "type": "list",
+}
+`;
+
+exports[`[PROMPTS] getUseReactIntlPrompt should return UsereactIntl prompt object with default property is equal to "plopConfig.useReactIntlByDefault" 1`] = `
+Object {
+  "default": true,
+  "message": "Do you want to use ReactIntl?",
+  "name": "useReactIntl",
+  "type": "confirm",
+}
+`;

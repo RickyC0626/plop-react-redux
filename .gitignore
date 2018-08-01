@@ -4,8 +4,11 @@
 .nyc_output
 # Dependency directories
 node_modules
+yarn-error.log
+npm-debug.log
 # Optional npm cache directory
 .npm
+
 # Test folder
 source
-coverage
+coverage/

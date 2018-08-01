@@ -1,102 +1,73 @@
 'use strict';
 
-const { componentExists, isDashCase } = require('../utils/component.js');
-const defaultConfig = require('../utils/configuration.js');
+const { getComponentTemplate, getUsedCase } = require('../utils/component.js');
+const { getAddAction } = require('../utils/actions.js');
+const {
+  getNamePrompt,
+  getTypePrompt,
+  getUseReactIntlPrompt,
+} = require('../utils/prompts.js');
+
+const getPrompts = plopConfig => {
+  const prompts = [];
+  prompts.push(getNamePrompt(plopConfig, 'component'));
+  prompts.push(
+    getTypePrompt(plopConfig, [
+      'PureComponent Class',
+      'Component Class',
+      'Stateless Function',
+    ]),
+  );
+  prompts.push(getUseReactIntlPrompt(plopConfig));
+  return prompts;
+};
+
+const getActions = plopConfig => data => {
+  const componentTemplate = getComponentTemplate(data.type);
+  const usedCase = getUsedCase(data.name);
+  const actions = [];
+  actions.push(
+    getAddAction(
+      plopConfig.componentsPath,
+      usedCase,
+      `{{${usedCase} name}}.component`,
+      componentTemplate,
+      null,
+    ),
+  );
+  actions.push(
+    getAddAction(
+      plopConfig.componentsPath,
+      usedCase,
+      'index',
+      './templates/index.js.hbs',
+      { componentType: 'component' },
+    ),
+  );
+  actions.push(
+    getAddAction(
+      plopConfig.componentsPath,
+      usedCase,
+      `{{${usedCase} name}}.test`,
+      './templates/test.js.hbs',
+      null,
+    ),
+  );
+  actions.push(
+    getAddAction(
+      plopConfig.componentsPath,
+      usedCase,
+      `{{${usedCase} name}}.style`,
+      './templates/style.js.hbs',
+      null,
+    ),
+  );
+  return actions;
+};
 
 module.exports = (plop, config) => {
-  const componentConfig = Object.assign(defaultConfig, config || {});
-
   plop.setGenerator('Add an component', {
-    prompts: [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What should it be called?',
-        default: 'Button',
-        validate: value => {
-          if (/.+/.test(value)) {
-            return componentExists(value, componentConfig.componentsPath)
-              ? 'A component with this name already exists'
-              : true;
-          }
-          return 'The name is required';
-        },
-      },
-      {
-        type: 'list',
-        name: 'type',
-        message: 'Select the type of component',
-        default: 'PureComponent Class',
-        choices: () => [
-          'PureComponent Class',
-          'Component Class',
-          'Stateless Function',
-        ],
-      },
-      {
-        type: 'confirm',
-        name: 'useReactIntl',
-        default: true,
-        message: 'Do you want to use ReactIntl?',
-      },
-    ],
-    actions: data => {
-      let componentTemplate;
-      const usedCase = isDashCase(data.name) ? 'dashCase' : 'properCase';
-      switch (data.type) {
-        case 'PureComponent Class': {
-          componentTemplate = './templates/pure.component.js.hbs';
-          break;
-        }
-        case 'Component Class': {
-          componentTemplate = './templates/component.js.hbs';
-          break;
-        }
-        case 'Stateless Function': {
-          componentTemplate = './templates/stateless.js.hbs';
-          break;
-        }
-        default: {
-          componentTemplate = './templates/pure.component.js.hbs';
-        }
-      }
-
-      const actions = [
-        {
-          type: 'add',
-          path: `${
-            componentConfig.componentsPath
-          }/{{${usedCase} name}}/{{${usedCase} name}}.component.js`,
-          templateFile: componentTemplate,
-          abortOnFail: true,
-        },
-        {
-          type: 'add',
-          path: `${
-            componentConfig.componentsPath
-          }/{{${usedCase} name}}/index.js`,
-          templateFile: './templates/index.js.hbs',
-          abortOnFail: true,
-          data: { componentType: 'component' },
-        },
-        {
-          type: 'add',
-          path: `${
-            componentConfig.componentsPath
-          }/{{${usedCase} name}}/{{${usedCase} name}}.test.js`,
-          templateFile: './templates/test.js.hbs',
-          abortOnFail: true,
-        },
-        {
-          type: 'add',
-          path: `${
-            componentConfig.componentsPath
-          }/{{${usedCase} name}}/{{${usedCase} name}}.style.js`,
-          templateFile: `./templates/style.js.hbs`,
-          abortOnFail: true,
-        },
-      ];
-      return actions;
-    },
+    prompts: getPrompts(config),
+    actions: getActions(config),
   });
 };
