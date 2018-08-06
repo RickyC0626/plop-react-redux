@@ -1,6 +1,6 @@
 {
   "name": "@sgfastit/plop-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A set of plop generator for creating React components",
   "main": "index.js",
   "scripts": {
