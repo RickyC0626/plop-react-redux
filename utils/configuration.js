@@ -1,6 +1,6 @@
 module.exports = {
-  componentsPath: './source/components',
-  containersPath: './source/containers',
+  componentsPath: './examples/components',
+  containersPath: './examples/containers',
   defaultComponentName: 'Button',
   defaultContainerName: 'Form',
   defaultComponentType: 'PureComponent Class',

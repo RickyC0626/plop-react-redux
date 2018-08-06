@@ -6,6 +6,7 @@ const {
   getNamePrompt,
   getTypePrompt,
   getUseReactIntlPrompt,
+  getUseFlowPrompt,
 } = require('../utils/prompts.js');
 
 const getPrompts = plopConfig => {
@@ -15,6 +16,7 @@ const getPrompts = plopConfig => {
     getTypePrompt(plopConfig, ['PureComponent Class', 'Component Class']),
   );
   prompts.push(getUseReactIntlPrompt(plopConfig));
+  prompts.push(getUseFlowPrompt(plopConfig));
   return prompts;
 };
 
