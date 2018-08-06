@@ -1,5 +1,5 @@
 {
-  "name": "plop-react",
+  "name": "@sgfastit/plop-react",
   "version": "0.0.4",
   "description": "A set of plop generator for creating React components",
   "main": "index.js",
