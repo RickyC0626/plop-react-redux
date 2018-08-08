@@ -1,28 +1,30 @@
 {
   "name": "@sgfastit/plop-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A set of plop generator for creating React components",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext '.js' -c .eslintrc.json ./",
-    "test": "jest --config=jest.config.js",
+    "test": "jest --config=./src/jest.config.js",
     "test:plop": "plop --plopfile index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FastIT/plop-react.git"
+    "url": "git+https://github.com/societe-generale/plop-react.git"
   },
   "keywords": [
     "plop",
+    "react",
+    "generator",
     "plop-react",
     "react-component"
   ],
   "author": "Matthieu SALETTES",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FastIT/plop-react/issues"
+    "url": "https://github.com/societe-generale/plop-react/issues"
   },
-  "homepage": "https://github.com/FastIT/plop-react#readme",
+  "homepage": "https://github.com/societe-generale/plop-react#readme",
   "devDependencies": {
     "eslint": "5.2.0",
     "eslint-config-prettier": "2.9.0",

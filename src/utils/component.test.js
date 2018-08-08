@@ -24,22 +24,22 @@ describe('[UTILS]', () => {
   describe('getComponentTemplate', () => {
     it('should return PureComponent template path if component type equals "PureComponent Class"', () => {
       expect(getComponentTemplate('PureComponent Class')).toEqual(
-        './templates/pure.component.js.hbs',
+        './src/templates/pure.component.js.hbs',
       );
     });
     it('should return Component template path if component type equals "Component Class"', () => {
       expect(getComponentTemplate('Component Class')).toEqual(
-        './templates/component.js.hbs',
+        './src/templates/component.js.hbs',
       );
     });
     it('should return Stateless template path if component type equals "Stateless Function"', () => {
       expect(getComponentTemplate('Stateless Function')).toEqual(
-        './templates/stateless.js.hbs',
+        './src/templates/stateless.js.hbs',
       );
     });
     it('should return PureComponent template path otherwise if component type is not known value', () => {
       expect(getComponentTemplate('Test')).toEqual(
-        './templates/pure.component.js.hbs',
+        './src/templates/pure.component.js.hbs',
       );
     });
   });

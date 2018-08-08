@@ -38,7 +38,7 @@ const getActions = plopConfig => data => {
       plopConfig.containersPath,
       usedCase,
       `{{${usedCase} name}}.container`,
-      './templates/container.js.hbs',
+      './src/templates/container.js.hbs',
       null,
     ),
   );
@@ -47,7 +47,7 @@ const getActions = plopConfig => data => {
       plopConfig.containersPath,
       usedCase,
       'index',
-      './templates/index.js.hbs',
+      './src/templates/index.js.hbs',
       { componentType: 'container' },
     ),
   );
@@ -56,7 +56,7 @@ const getActions = plopConfig => data => {
       plopConfig.containersPath,
       usedCase,
       `{{${usedCase} name}}.test`,
-      './templates/test.js.hbs',
+      './src/templates/test.js.hbs',
       null,
     ),
   );
@@ -65,7 +65,7 @@ const getActions = plopConfig => data => {
       plopConfig.containersPath,
       usedCase,
       `{{${usedCase} name}}.style`,
-      './templates/style.js.hbs',
+      './src/templates/style.js.hbs',
       null,
     ),
   );

@@ -11,16 +11,16 @@ const getUsedCase = componentName => {
 const getComponentTemplate = type => {
   switch (type) {
     case 'PureComponent Class': {
-      return './templates/pure.component.js.hbs';
+      return './src/templates/pure.component.js.hbs';
     }
     case 'Component Class': {
-      return './templates/component.js.hbs';
+      return './src/templates/component.js.hbs';
     }
     case 'Stateless Function': {
-      return './templates/stateless.js.hbs';
+      return './src/templates/stateless.js.hbs';
     }
     default: {
-      return './templates/pure.component.js.hbs';
+      return './src/templates/pure.component.js.hbs';
     }
   }
 };
