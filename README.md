@@ -1,5 +1,5 @@
 # plop-react
-A [plop](https://plopjs.com/) generator for creating React components in accordance with SG guidelines.
+A [plop](https://plopjs.com/) generator for creating React components with specific structure.
 It allows to create 2 kind of React components:
 * React Component: Simple component with the following folder structure:
     * `<Component name>.component.js`
